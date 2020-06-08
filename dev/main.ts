@@ -1,6 +1,7 @@
 class Main {
 
-    private ships : PirateShip[] = []
+    private ships: PirateShip[] = []
+    private messageboard: Messageboard;
 
     constructor() {
         for (let i = 0; i < 10; i++) {
@@ -8,6 +9,8 @@ class Main {
         }
 
         // Eventueel Messageboard aanmaken zodat deze zichtbaar wordt?
+        this.messageboard = Messageboard.getInstance();
+        this.messageboard.createMessage(this.messageboard);
 
         this.gameLoop()
     }
@@ -17,12 +20,12 @@ class Main {
             ship.update()
 
             for (const otherShip of this.ships) {
-                if(ship !== otherShip) {
-                    if(ship.hasCollision(otherShip)) {
+                if (ship !== otherShip) {
+                    if (ship.hasCollision(otherShip)) {
                         ship.hit = true
                         // break inner loop to prevent overwriting the hit
                         break
-                    } 
+                    }
                     else {
                         ship.hit = false
                     }
