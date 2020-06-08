@@ -16,6 +16,8 @@ class Messageboard extends HTMLElement {
     }
 
     public showMessage(sentMessage: string) {
+
+        // Weet alleen niet hoe ik dit zou 
         let span = document.createElement("span");
         let message = document.createElement("message");
         span.innerHTML = sentMessage;
